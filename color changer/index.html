@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+       body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       }
+       .page{
+        
+        border: solid black;
+        height: 300px;
+        width: 300px;
+
+
+       }
+       button{
+        height: 80px;
+        width: 300px;
+        margin: 30px;
+        border-radius: 50px;
+       }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2 class="hexcode"></h2>
+    </div>
+    <div class="page">
+
+    </div>
+    <button onclick="changeColor()">CHANGE COLOR</button>
+    <script>
+        function randomNumber(){
+             
+            let num = Math.floor(Math.random() * 257);
+            return num;
+
+        }
+        function changeColor(){
+            let r = randomNumber();
+            let g = randomNumber();
+            let b = randomNumber();
+            let temp = document.querySelector(".page");
+            // let colorCode = "rgb(" + r + "," + g + "," + b + ")";
+            let colorCode = `rgb(${r}, ${g}, ${b})`;
+
+            temp.style.backgroundColor = colorCode;
+            document.querySelector(".hexcode").innerText = colorCode; 
+        }
+    </script>
+</body>
+
+</html>
