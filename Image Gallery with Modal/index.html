@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Modal</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+            max-width: 900px;
+            grid-auto-rows: 200px;
+            /* justify-content: center; */
+        }
+        .gallery img{
+            width: 100%;
+            height: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+
+        }
+        .modal{
+            display: none; 
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8); /* Black with opacity */
+
+        }
+        .modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+  margin-top: 5%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <span class="close">&times</span>
+        <img src="" alt="" class="modal-content">
+    </div>
+    <div class="gallery">
+        <img src="https://img-cdn.inc.com/image/upload/f_webp,c_fit,w_1920,q_auto/images/panoramic/getty_1847814_95335.jpg" alt="Image 1">
+        <img src="https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/ecbb/live/d32fcb60-0e1d-11ef-b9eb-dbbc39eb6212.jpg" alt="Image 1">
+        <img src="https://a.espncdn.com/photo/2015/0911/box_a_tyson01jr__r7925_1296x729_16-9.jpg" alt="Image 1">
+        <img src="https://www.trillertv.com/thumbs/o/profile/1757_300x300.jpg" alt="Image 1">
+        <img src="https://api.time.com/wp-content/uploads/2016/06/muhammad-ali-cassius-clay-sonny-listen-neil-leifer-facebook.jpg" onclick="" alt="Image 1">
+        <img src="https://currumbinsanctuary.com.au/wp-content/uploads/2024/11/capybara-looking-leaves.jpg" alt="Image 1">
+        <img src="https://currumbinsanctuary.com.au/wp-content/uploads/2024/11/capybara-looking-leaves.jpg" alt="Image 1">
+        <img src="https://currumbinsanctuary.com.au/wp-content/uploads/2024/11/capybara-looking-leaves.jpg" alt="Image 1">
+        <img src="https://currumbinsanctuary.com.au/wp-content/uploads/2024/11/capybara-looking-leaves.jpg" alt="Image 1">
+    
+    </div>
+    <script>
+        let modal = document.querySelector(".modal");
+        let closeBtn = document.querySelector(".close");
+        let modalImg = document.querySelector(".modal-content");
+        let images = document.querySelectorAll(".gallery img");
+        images.forEach(img =>{
+            img.addEventListener("click",function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            });
+        });
+        closeBtn.addEventListener("click", function(){
+            modal.style.display = "none";
+        })
+    </script>
+</body>
+</html>
