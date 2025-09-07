@@ -15,7 +15,7 @@
         </div>
         <div>
             <ul class="tasklist">
-                <li>learn dsa</li>
+                <!-- <li>learn dsa</li> -->
             </ul>
         </div>
     </div>
@@ -49,6 +49,7 @@
             //crate complete buton
             const completeBtn = document.createElement("button");
             completeBtn.innerText = "Complete";
+            completeBtn.classList.add("task-btn", "complete-btn");
             completeBtn.addEventListener("click",()=>{
                 li.classList.toggle("completed");
             });
@@ -56,13 +57,14 @@
             //Delete button
             const deleteBtn = document.createElement("button");
             deleteBtn.innerText = "Delete";
+            deleteBtn.classList.add("task-btn", "delete-btn");
             deleteBtn.addEventListener("click",()=>{
                 taskList.removeChild(li);
                 tasks = tasks.filter(task => task !== taskText);
             });
             taskList.appendChild(li);
-            taskList.appendChild(completeBtn);
-            taskList.appendChild(deleteBtn);
+            li.appendChild(completeBtn);
+            li.appendChild(deleteBtn);
             taskInput.value = " " ;
         }
     </script>
