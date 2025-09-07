@@ -62,9 +62,12 @@ h1 {
   border: 1px solid #ddd;
   display: flex; 
   justify-content: space-between;
-  align-items:flex-end;
+  align-items:center;
 }
 
+.text_divclass{
+  flex: 3;
+}
 .completed{
   text-decoration: line-through;
   color: #888;
