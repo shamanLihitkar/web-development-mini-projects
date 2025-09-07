@@ -44,14 +44,16 @@
             tasks.push(taskText);
             // create task element
             const li = document.createElement("li");
-            li.textContent = taskText;
-
+            const text_div = document.createElement("div");
+            text_div.textContent = taskText;
+            text_div.classList.add("text_divclass");
+            
             //crate complete buton
             const completeBtn = document.createElement("button");
             completeBtn.innerText = "Complete";
             completeBtn.classList.add("task-btn", "complete-btn");
             completeBtn.addEventListener("click",()=>{
-                li.classList.toggle("completed");
+                text_div.classList.toggle("completed");
             });
 
             //Delete button
@@ -63,6 +65,7 @@
                 tasks = tasks.filter(task => task !== taskText);
             });
             taskList.appendChild(li);
+            li.appendChild(text_div);
             li.appendChild(completeBtn);
             li.appendChild(deleteBtn);
             taskInput.value = " " ;
